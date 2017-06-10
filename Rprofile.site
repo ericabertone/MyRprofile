@@ -1,0 +1,34 @@
+#-----------------------------------------------------
+# Packages
+message("\n")
+message("🔹Loading packages ...")
+pkgs<-c("statquotes","assertive.reflection")
+invisible(lapply(pkgs, require, character.only = TRUE))
+#update.packages(ask=TRUE)
+#-----------------------------------------------------
+# R interactive prompt 
+message("\n")
+message(paste("🔹I set up as default options: digits = 4.","You can modify them trough the Rprofile.site (located here:",paste(R.home(),"/etc",sep=""),") ",sep=" "))
+options(prompt = "☁ >")
+# options(continue="+ ")
+#-----------------------------------------------------
+# Other options
+options(digits = 4)
+#-----------------------------------------------------
+# Welcome Message
+message("\n")
+message("🔹Checking your system 💻 ...")
+ifelse(is_osx_el_capitan(),
+       "✔ The operating system in this machine is Mac OSX El Capitan ",
+       "⚠️ The operating system in this machine is Mac OSX El Capitan . 
+       You can have problems with this code.")
+message("\n")
+message("✨Quote of the day✨ ")
+statquote()
+message(paste("\n",
+              "Hi",
+              Sys.info()[["user"]],
+              "👋",
+              "\n",
+              "Happy coding 🤓💻",
+              "\n\n",sep=" "))
